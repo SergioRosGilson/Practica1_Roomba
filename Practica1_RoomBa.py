@@ -5,8 +5,15 @@ import time
 RoomBa_speed = 5
 
 #Tamaño de ventana de juego
-window_x = 20
-window_y = 40
+window_x = 600
+window_y = 600
+
+#Definimos colores
+black = pygame.Color(0, 0, 0)
+white = pygame.Color(255, 255, 255)
+red = pygame.Color(255, 0, 0)
+green = pygame.Color(0, 255, 0)
+blue = pygame.Color(0, 0, 255)
 
 #Inicializamos pygame y la ventana de juego
 pygame.init()
@@ -26,6 +33,10 @@ change_to = direction
 def calcular_area(largo, ancho):
     """Calcula el área de una zona multiplicando largo por ancho."""
     return largo * ancho
+
+def game_over():
+    pygame.quit()
+    quit()
  
 def main():
     # Definición de las zonas con sus dimensiones (largo, ancho)
@@ -91,6 +102,10 @@ def main():
             RoomBa_position[0] -= 10
         if direction == 'RIGHT':
             RoomBa_position[0] += 10
+
+        #Dibujamos la RoomBa
+        for pos in RoomBa_position:
+            pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
 
         #Refrescamos la pantalla y la unidad de tiempo
         pygame.display.update()
