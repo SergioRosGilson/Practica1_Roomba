@@ -5,8 +5,8 @@ import time
 RoomBa_speed = 5
 
 #Tamaño de ventana de juego
-window_x = 600
-window_y = 600
+window_x = 720
+window_y = 480
 
 #Definimos colores
 black = pygame.Color(0, 0, 0)
