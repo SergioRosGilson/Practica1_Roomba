@@ -84,13 +84,13 @@ def main():
                     change_to = 'RIGHT'
     
         if direction == 'UP':
-            snake_position[1] -= 10
+            RoomBa_position[1] -= 10
         if direction == 'DOWN':
-            snake_position[1] += 10
+            RoomBa_position[1] += 10
         if direction == 'LEFT':
-            snake_position[0] -= 10
+            RoomBa_position[0] -= 10
         if direction == 'RIGHT':
-            snake_position[0] += 10
+            RoomBa_position[0] += 10
 
         #Refrescamos la pantalla y la unidad de tiempo
         pygame.display.update()
