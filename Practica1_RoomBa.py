@@ -5,8 +5,8 @@ import time
 RoomBa_speed = 5
 
 #Tamaño de ventana de juego
-window_x = 200
-window_y = 400
+window_x = 20
+window_y = 40
 
 #Inicializamos pygame y la ventana de juego
 pygame.init()
