@@ -1,4 +1,27 @@
 import concurrent.futures
+import pygame
+import time
+
+RoomBa_speed = 5
+
+#Tamaño de ventana de juego
+window_x = 1920
+window_y = 1080
+
+#Inicializamos pygame y la ventana de juego
+pygame.init()
+pygame.display.set_caption('RoomBa')
+game_window = pygame.display.set_mode((window_x, window_y))
+
+#Declaramos la unidad de tiempo
+fps = pygame.time.Clock()
+
+#Declaramos la posición de la estación de carga
+RoomBa_position = [10, 10]
+
+#Establecemos el movimiento inicial de la RoomBa
+direction = 'RIGHT'
+change_to = direction
  
 def calcular_area(largo, ancho):
     """Calcula el área de una zona multiplicando largo por ancho."""
@@ -45,6 +68,33 @@ def main():
     
     print(f"\nSuperficie total a limpiar: {superficie_total} cm²")
     print(f"Tiempo estimado de limpieza: {tiempo_limpeza:.2f} segundos")
+
+    #Empieza el bucle de juego
+    while True:
+        #Asociamos el movimiento a las teclas
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    change_to = 'UP'
+                if event.key == pygame.K_DOWN:
+                    change_to = 'DOWN'
+                if event.key == pygame.K_LEFT:
+                    change_to = 'LEFT'
+                if event.key == pygame.K_RIGHT:
+                    change_to = 'RIGHT'
     
+        if direction == 'UP':
+            snake_position[1] -= 10
+        if direction == 'DOWN':
+            snake_position[1] += 10
+        if direction == 'LEFT':
+            snake_position[0] -= 10
+        if direction == 'RIGHT':
+            snake_position[0] += 10
+
+        #Refrescamos la pantalla y la unidad de tiempo
+        pygame.display.update()
+        fps.tick(RoomBa_speed)
+
 if __name__ == '__main__':
     main()
