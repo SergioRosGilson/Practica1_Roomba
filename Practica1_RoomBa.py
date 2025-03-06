@@ -103,9 +103,18 @@ def main():
         if direction == 'RIGHT':
             RoomBa_position[0] += 10
 
+        #Condiciones de Game Over
+        if RoomBa_position[0] < 0 or RoomBa_position[0] > window_x-10:
+            game_over()
+        if RoomBa_position[1] < 0 or RoomBa_position[1] > window_y-10:
+            game_over()
+
         #Dibujamos la RoomBa
         for pos in RoomBa_position:
             pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
+        
+        #Dibujamos las zonas a limpiar
+        pygame.draw.rect(game_window, white, pygame.Rect(zonas[0], zonas[1], 10, 10))
 
         #Refrescamos la pantalla y la unidad de tiempo
         pygame.display.update()
