@@ -1,11 +1,8 @@
 import pygame
 import time
+import GameOver
 
 class Juego:
-    
-    def game_over():
-        pygame.quit()
-        quit()
     
     RoomBa_speed = 5
 
@@ -71,10 +68,13 @@ class Juego:
             RoomBa_position[0] += 10
 
         #Condiciones de Game Over
+        
+        ClaseGameOver = GameOver()
+        
         if RoomBa_position[0] < 0 or RoomBa_position[0] > window_x-10:
-            game_over()
+            ClaseGameOver()
         if RoomBa_position[1] < 0 or RoomBa_position[1] > window_y-10:
-            game_over()
+            ClaseGameOver()
 
         #Dibujamos la RoomBa
         for pos in RoomBa_position:
