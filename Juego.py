@@ -31,12 +31,13 @@ class Juego:
     #Declaramos la posición de la estación de carga
     RoomBa_position = [10, 10]
 
-    #Establecemos el movimiento inicial de la RoomBa
-    direction = 'RIGHT'
-    change_to = direction
-
     #Empieza el bucle de juego
     while True:
+        
+        #Establecemos el movimiento inicial de la RoomBa
+        direction = 'RIGHT'
+        change_to = direction
+        
         #Asociamos el movimiento a las teclas
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
