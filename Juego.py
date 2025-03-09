@@ -35,7 +35,7 @@ class Juego:
     RoomBa_position = [10, 10]
 
     # Definición de las zonas con sus dimensiones (largo, ancho)
-     zonas = {
+    zonas = {
         'Zona 1': (500, 150),
         'Zona 2': (480, 101),
         'Zona 3': (309, 480),
