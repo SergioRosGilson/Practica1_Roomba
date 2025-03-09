@@ -8,13 +8,6 @@ class Main:
         return largo * ancho
     
     def main():
-        # Definición de las zonas con sus dimensiones (largo, ancho)
-        zonas = {
-            'Zona 1': (500, 150),
-            'Zona 2': (480, 101),
-            'Zona 3': (309, 480),
-            'Zona 4': (90, 220)
-        }
         
         # Tasa de limpieza (por ejemplo, 1000 cm²/segundo)
         tasa_limpeza = 1000  # cm²/s
@@ -27,7 +20,7 @@ class Main:
             # Asignamos cada cálculo a un hilo
             future_to_zona = {
                 executor.submit(Main.calcular_area, largo, ancho): zona
-                for zona, (largo, ancho) in zonas.items()
+                for zona, (largo, ancho) in print(Juego.zonas.items())
             }
             
             # Recogemos los resultados a medida que se van completando
