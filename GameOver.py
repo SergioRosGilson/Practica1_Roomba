@@ -6,4 +6,5 @@ class GameOver:
         pygame.quit()
         quit()
 
-    game_over()
+    if __name__ == "__main__":
+        game_over()

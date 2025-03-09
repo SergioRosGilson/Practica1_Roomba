@@ -26,7 +26,7 @@ class Main:
         with concurrent.futures.ThreadPoolExecutor() as executor:
             # Asignamos cada cálculo a un hilo
             future_to_zona = {
-                executor.submit(calcular_area, largo, ancho): zona
+                executor.submit(Main.calcular_area, largo, ancho): zona
                 for zona, (largo, ancho) in zonas.items()
             }
             

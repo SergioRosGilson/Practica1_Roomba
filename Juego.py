@@ -17,10 +17,16 @@ class Juego:
     green = pygame.Color(0, 255, 0)
     blue = pygame.Color(0, 0, 255)
 
+    def crear_ventana(Window_X, Window_Y):
+        pygame.display.set_mode((Window_X, Window_Y))
+    
     #Inicializamos pygame y la ventana de juego
-    pygame.init()
-    pygame.display.set_caption('RoomBa')
-    game_window = pygame.display.set_mode((window_x, window_y))
+    def iniciar_juego():
+        pygame.init()
+        pygame.display.set_caption('RoomBa')
+        Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))
+
+    iniciar_juego()
 
     #Declaramos la unidad de tiempo
     fps = pygame.time.Clock()
@@ -31,41 +37,45 @@ class Juego:
     #Empieza el bucle de juego
     while True:
         
-        #Establecemos el movimiento inicial de la RoomBa
-        direction = 'RIGHT'
-        change_to = direction
+        def movimiento_RoomBa(R_position):
         
-        #Asociamos el movimiento a las teclas
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    change_to = 'UP'
-                if event.key == pygame.K_DOWN:
-                    change_to = 'DOWN'
-                if event.key == pygame.K_LEFT:
-                    change_to = 'LEFT'
-                if event.key == pygame.K_RIGHT:
-                    change_to = 'RIGHT'
-
-        #Optimizar el movimiento
-        if change_to == 'UP' and direction != 'DOWN':
-            direction = 'UP'
-        if change_to == 'DOWN' and direction != 'UP':
-            direction = 'DOWN'
-        if change_to == 'LEFT' and direction != 'RIGHT':
-            direction = 'LEFT'
-        if change_to == 'RIGHT' and direction != 'LEFT':
+            #Establecemos el movimiento inicial de la RoomBa
             direction = 'RIGHT'
+            change_to = direction
+            
+            #Asociamos el movimiento a las teclas
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_UP:
+                        change_to = 'UP'
+                    if event.key == pygame.K_DOWN:
+                        change_to = 'DOWN'
+                    if event.key == pygame.K_LEFT:
+                        change_to = 'LEFT'
+                    if event.key == pygame.K_RIGHT:
+                        change_to = 'RIGHT'
 
-        #Movemos la RoomBa
-        if direction == 'UP':
-            RoomBa_position[1] -= 10
-        if direction == 'DOWN':
-            RoomBa_position[1] += 10
-        if direction == 'LEFT':
-            RoomBa_position[0] -= 10
-        if direction == 'RIGHT':
-            RoomBa_position[0] += 10
+            #Optimizar el movimiento
+            if change_to == 'UP' and direction != 'DOWN':
+                direction = 'UP'
+            if change_to == 'DOWN' and direction != 'UP':
+                direction = 'DOWN'
+            if change_to == 'LEFT' and direction != 'RIGHT':
+                direction = 'LEFT'
+            if change_to == 'RIGHT' and direction != 'LEFT':
+                direction = 'RIGHT'
+
+            #Movemos la RoomBa
+            if direction == 'UP':
+                R_position[1] -= 10
+            if direction == 'DOWN':
+                R_position[1] += 10
+            if direction == 'LEFT':
+                R_position[0] -= 10
+            if direction == 'RIGHT':
+                R_position[0] += 10
+
+        movimiento_RoomBa(print(RoomBa_position))
 
         #Condiciones de Game Over
         
@@ -78,10 +88,10 @@ class Juego:
 
         #Dibujamos la RoomBa
         for pos in RoomBa_position:
-            pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
+            pygame.draw.rect((crear_ventana(print(window_x), print(window_y))), green, pygame.Rect(pos[0], pos[1], 10, 10))
         
         #Dibujamos las zonas a limpiar
-        pygame.draw.rect(game_window, white, pygame.Rect(zonas[0], zonas[1], 10, 10))
+        pygame.draw.rect((crear_ventana(print(window_x), print(window_y))), white, pygame.Rect(zonas[0], zonas[1], 10, 10))
 
         #Refrescamos la pantalla y la unidad de tiempo
         pygame.display.update()
