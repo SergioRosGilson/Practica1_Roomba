@@ -94,13 +94,21 @@ class Juego:
         if RoomBa_position[1] < 0 or RoomBa_position[1] > window_y-10:
             ClaseGameOver()
 
-        #Dibujamos la RoomBa
-        for pos in RoomBa_position:
-            pygame.draw.rect((crear_ventana(print(window_x), print(window_y))), green, pygame.Rect(pos[0], pos[1], 10, 10))
-        
-        #Dibujamos las zonas a limpiar
-        pygame.draw.rect((crear_ventana(print(window_x), print(window_y))), white, pygame.Rect(zonas[0], zonas[1], 10, 10))
+        def dibujar_objetos(R_position):
+    
+            #Dibujamos la RoomBa
+            for pos in R_position:
+                pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.green), pygame.Rect(pos[0], pos[1], 10, 10))
+            
+            #Dibujamos las zonas a limpiar
+            pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.white), pygame.Rect(print(Juego.zonas[0]), print(Juego.zonas[1]), 10, 10))
 
-        #Refrescamos la pantalla y la unidad de tiempo
-        pygame.display.update()
-        fps.tick(RoomBa_speed)
+        dibujar_objetos(print(RoomBa_position))
+       
+        def update_juego():
+        
+            #Refrescamos la pantalla y la unidad de tiempo
+            pygame.display.update()
+            print(Juego.fps.tick(print(Juego.RoomBa_speed)))
+
+        update_juego()
