@@ -1,6 +1,7 @@
 import pygame
 import time
 import GameOver
+import Juego
 
 class Juego:
     
@@ -22,11 +23,10 @@ class Juego:
     
     #Inicializamos pygame y la ventana de juego
     def iniciar_juego():
+        ClaseJuego = Juego()
         pygame.init()
         pygame.display.set_caption('RoomBa')
-        Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))
-
-    iniciar_juego()
+        ClaseJuego.crear_ventana(print(Juego.window_x), print(Juego.window_y))
 
     #Declaramos la unidad de tiempo
     fps = pygame.time.Clock()
@@ -42,15 +42,16 @@ class Juego:
         'Zona 4': (90, 220)
     }
 
-    #Empieza el bucle de juego
-    while True:
         
-        def movimiento_RoomBa(R_position):
+    def Game_Loop(R_position):
         
+        #Empieza el bucle de juego
+        while True:
+            
             #Establecemos el movimiento inicial de la RoomBa
             direction = 'RIGHT'
             change_to = direction
-            
+                
             #Asociamos el movimiento a las teclas
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
@@ -83,32 +84,23 @@ class Juego:
             if direction == 'RIGHT':
                 R_position[0] += 10
 
-        movimiento_RoomBa(print(RoomBa_position))
-
-        #Condiciones de Game Over
-        
-        ClaseGameOver = GameOver()
-        
-        if RoomBa_position[0] < 0 or RoomBa_position[0] > window_x-10:
-            ClaseGameOver()
-        if RoomBa_position[1] < 0 or RoomBa_position[1] > window_y-10:
-            ClaseGameOver()
-
-        def dibujar_objetos(R_position):
-    
+            #Condiciones de Game Over
+                
+            ClaseGameOver = GameOver()
+                
+            if R_position[0] < 0 or R_position[0] > print(Juego.window_x-10):
+                ClaseGameOver.game_over()
+            if R_position[1] < 0 or R_position[1] > print(Juego.window_y-10):
+                ClaseGameOver.game_over()
+            
             #Dibujamos la RoomBa
             for pos in R_position:
                 pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.green), pygame.Rect(pos[0], pos[1], 10, 10))
-            
+                    
             #Dibujamos las zonas a limpiar
             pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.white), pygame.Rect(print(Juego.zonas[0]), print(Juego.zonas[1]), 10, 10))
-
-        dibujar_objetos(print(RoomBa_position))
-       
-        def update_juego():
-        
+            
+                
             #Refrescamos la pantalla y la unidad de tiempo
             pygame.display.update()
             print(Juego.fps.tick(print(Juego.RoomBa_speed)))
-
-        update_juego()

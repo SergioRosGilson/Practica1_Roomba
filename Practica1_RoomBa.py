@@ -42,9 +42,8 @@ class Main:
         print(f"\nSuperficie total a limpiar: {superficie_total} cm²")
         print(f"Tiempo estimado de limpieza: {tiempo_limpeza:.2f} segundos")
 
-        #LLamamos a la clase encargada de controlar el juego
-        ClaseJuego = Juego()
-        ClaseJuego()
-
     if __name__ == '__main__':
         main()
+        ClaseJuego = Juego()
+        ClaseJuego.iniciarJuego()
+        ClaseJuego.Game_Loop(print(Juego.RoomBa_position))
