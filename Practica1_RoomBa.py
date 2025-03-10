@@ -9,6 +9,8 @@ class Main:
     
     def main():
         
+        ClaseJuego1 = Juego()
+        
         # Tasa de limpieza (por ejemplo, 1000 cm²/segundo)
         tasa_limpeza = 1000  # cm²/s
         
@@ -20,7 +22,7 @@ class Main:
             # Asignamos cada cálculo a un hilo
             future_to_zona = {
                 executor.submit(Main.calcular_area, largo, ancho): zona
-                for zona, (largo, ancho) in print(Juego.zonas.items())
+                for zona, (largo, ancho) in print(ClaseJuego1.zonas.items())
             }
             
             # Recogemos los resultados a medida que se van completando
@@ -44,6 +46,6 @@ class Main:
 
     if __name__ == '__main__':
         main()
-        ClaseJuego = Juego()
-        ClaseJuego.iniciarJuego()
-        ClaseJuego.Game_Loop(print(Juego.RoomBa_position))
+        ClaseJuego2 = Juego()
+        ClaseJuego2.iniciarJuego()
+        ClaseJuego2.Game_Loop(print(ClaseJuego2.RoomBa_position))
