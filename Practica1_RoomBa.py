@@ -1,5 +1,5 @@
 import concurrent.futures
-import Juego
+from Juego import Juego
 
 class Main:
 

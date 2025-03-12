@@ -1,9 +1,18 @@
 import pygame
 import time
-import GameOver
+from GameOver import GameOver
 import Juego
 
 class Juego:
+    
+    def __init__(self):
+        # Definición de las zonas con sus dimensiones (largo, ancho)
+        self.zonas = {
+            'Zona 1': (500, 150),
+            'Zona 2': (480, 101),
+            'Zona 3': (309, 480),
+            'Zona 4': (90, 220)
+        }
     
     RoomBa_speed = 5
 
