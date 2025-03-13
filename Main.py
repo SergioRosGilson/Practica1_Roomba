@@ -1,5 +1,6 @@
 import concurrent.futures
 from Juego import Juego
+from Zonas import Zonas
 
 class Main:
 
@@ -8,8 +9,6 @@ class Main:
         return largo * ancho
     
     def main():
-        
-        ClaseJuego1 = Juego()
         
         # Tasa de limpieza (por ejemplo, 1000 cm²/segundo)
         tasa_limpeza = 1000  # cm²/s
@@ -22,7 +21,7 @@ class Main:
             # Asignamos cada cálculo a un hilo
             future_to_zona = {
                 executor.submit(Main.calcular_area, largo, ancho): zona
-                for zona, (largo, ancho) in print(ClaseJuego1.zonas.items())
+                for zona, (largo, ancho) in print(Zonas.items())
             }
             
             # Recogemos los resultados a medida que se van completando

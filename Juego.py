@@ -2,17 +2,9 @@ import pygame
 import time
 from GameOver import GameOver
 import Juego
+from Zonas import Zonas
 
 class Juego:
-    
-    def __init__(self):
-        # Definición de las zonas con sus dimensiones (largo, ancho)
-        self.zonas = {
-            'Zona 1': (500, 150),
-            'Zona 2': (480, 101),
-            'Zona 3': (309, 480),
-            'Zona 4': (90, 220)
-        }
     
     RoomBa_speed = 5
 
@@ -106,7 +98,7 @@ class Juego:
                 R_position[0] += 10
 
             #Condiciones del score
-            if R_position[0] == print(Juego.zonas[0]) and R_position[1] == print(Juego.zonas[1]):
+            if R_position[0] == print(Zonas.Zona_1[0]) and R_position[1] == print(Zonas.Zona_1[1]):
                 Juego.score += 10
                 Juego.zona_spawn = False
 
@@ -125,7 +117,7 @@ class Juego:
                 pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.green), pygame.Rect(pos[0], pos[1], 10, 10))
                     
             #Dibujamos las zonas a limpiar
-            pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.white), pygame.Rect(print(Juego.zonas[0]), print(Juego.zonas[1]), 10, 10))
+            pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.white), pygame.Rect(print(Zonas.Zona_1[0]), print(Zonas.Zona_1[1]), 10, 10))
             
             #Mostramos el score
             ClaseJuego = Juego()
