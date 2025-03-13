@@ -47,6 +47,6 @@ class Main:
     if __name__ == '__main__':
         main()
         ClaseJuego2 = Juego()
-        ClaseJuego2.iniciarJuego()
+        ClaseJuego2.iniciar_juego()
         ClaseJuego2.play_music()
         ClaseJuego2.Game_Loop(print(ClaseJuego2.RoomBa_position))
