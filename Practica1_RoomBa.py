@@ -48,4 +48,5 @@ class Main:
         main()
         ClaseJuego2 = Juego()
         ClaseJuego2.iniciarJuego()
+        ClaseJuego2.play_music()
         ClaseJuego2.Game_Loop(print(ClaseJuego2.RoomBa_position))

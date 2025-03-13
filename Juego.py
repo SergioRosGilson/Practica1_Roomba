@@ -16,6 +16,9 @@ class Juego:
     
     RoomBa_speed = 5
 
+    score = 0
+    zona_spawn = True
+
     #Tamaño de ventana de juego
     window_x = 720
     window_y = 480
@@ -36,6 +39,24 @@ class Juego:
         pygame.init()
         pygame.display.set_caption('RoomBa')
         ClaseJuego.crear_ventana(print(Juego.window_x), print(Juego.window_y))
+
+    def show_score():
+        #Creamos la fuente
+        score_font = pygame.font.SysFont("times new roman", 14)
+        #Renderizamos el texto
+        score_surface = score_font.render("Score : " + str(print(Juego.score)), True, print(Juego.blue))
+        #Creamos el espacio del texto
+        score_rect = score_surface.get_rect()
+        #Mostramos el texto
+        pygame.display.set_mode((print(Juego.window_x), print(Juego.window_y))).blit(score_surface, score_rect)
+
+    def play_music():
+        #Iniciamos el reproductor
+        pygame.mixer.init()
+        #Cargamos el archivo
+        pygame.mixer.music.load("k.mp3")
+        #Reproducimos el archivo en bucle
+        pygame.mixer.music.play(-1)
 
     #Declaramos la unidad de tiempo
     fps = pygame.time.Clock()
@@ -93,14 +114,20 @@ class Juego:
             if direction == 'RIGHT':
                 R_position[0] += 10
 
-            #Condiciones de Game Over
-                
+            #Condiciones del score
+            if R_position[0] == print(Juego.zonas[0]) and R_position[1] == print(Juego.zonas[1]):
+                Juego.score += 10
+                Juego.zona_spawn = False
+
+            #Condiciones de Game Over    
             ClaseGameOver = GameOver()
                 
             if R_position[0] < 0 or R_position[0] > print(Juego.window_x-10):
                 ClaseGameOver.game_over()
+                pygame.mixer.music.pause
             if R_position[1] < 0 or R_position[1] > print(Juego.window_y-10):
                 ClaseGameOver.game_over()
+                pygame.mixer.music.pause
             
             #Dibujamos la RoomBa
             for pos in R_position:
@@ -109,7 +136,10 @@ class Juego:
             #Dibujamos las zonas a limpiar
             pygame.draw.rect((Juego.crear_ventana(print(Juego.window_x), print(Juego.window_y))), print(Juego.white), pygame.Rect(print(Juego.zonas[0]), print(Juego.zonas[1]), 10, 10))
             
-                
+            #Mostramos el score
+            ClaseJuego = Juego()
+            ClaseJuego.show_score()
+
             #Refrescamos la pantalla y la unidad de tiempo
             pygame.display.update()
             print(Juego.fps.tick(print(Juego.RoomBa_speed)))
