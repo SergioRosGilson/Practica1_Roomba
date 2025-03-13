@@ -54,7 +54,7 @@ class Juego:
         #Iniciamos el reproductor
         pygame.mixer.init()
         #Cargamos el archivo
-        pygame.mixer.music.load("k.mp3")
+        pygame.mixer.music.load("Background.mp3")
         #Reproducimos el archivo en bucle
         pygame.mixer.music.play(-1)
 
