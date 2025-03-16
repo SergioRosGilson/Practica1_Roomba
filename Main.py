@@ -1,6 +1,7 @@
 import concurrent.futures
 from Juego import Juego
 from Zonas import Zonas
+import Main
 
 class Main:
 
@@ -11,6 +12,7 @@ class Main:
     def main():
         
         ClaseZonas = Zonas()
+        ClaseMain = Main()
         
         # Tasa de limpieza (por ejemplo, 1000 cm²/segundo)
         tasa_limpeza = 1000  # cm²/s
@@ -22,8 +24,8 @@ class Main:
         with concurrent.futures.ThreadPoolExecutor() as executor:
             # Asignamos cada cálculo a un hilo
             future_to_zona = {
-                executor.submit(Main.calcular_area, largo, ancho): zona
-                for zona, (largo, ancho) in print(ClaseZonas.zonas.items())
+                executor.submit(ClaseMain.calcular_area, largo, ancho): zona
+                for zona, (largo, ancho) in ClaseZonas.zonas.items()
             }
             
             # Recogemos los resultados a medida que se van completando
