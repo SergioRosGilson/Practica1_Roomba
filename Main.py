@@ -23,7 +23,7 @@ class Main:
             # Asignamos cada cálculo a un hilo
             future_to_zona = {
                 executor.submit(Main.calcular_area, largo, ancho): zona
-                for zona, (largo, ancho) in print(ClaseZonas.items())
+                for zona, (largo, ancho) in print(ClaseZonas.zonas.items())
             }
             
             # Recogemos los resultados a medida que se van completando

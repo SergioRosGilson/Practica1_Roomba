@@ -103,7 +103,7 @@ class Juego:
                 R_position[0] += 10
 
             #Condiciones del score
-            if R_position[0] == print(ClaseZonas.Zona_1[0]) and R_position[1] == print(ClaseZonas.Zona_1[1]):
+            if R_position[0] == print(ClaseZonas.zonas[0]) and R_position[1] == print(ClaseZonas.zonas[1]):
                 ClaseJuego.score += 10
                 ClaseJuego.zona_spawn = False
 
@@ -122,7 +122,7 @@ class Juego:
                 pygame.draw.rect((ClaseJuego.crear_ventana(print(ClaseJuego.window_x), print(ClaseJuego.window_y))), print(ClaseJuego.green), pygame.Rect(pos[0], pos[1], 10, 10))
                     
             #Dibujamos las zonas a limpiar
-            pygame.draw.rect((ClaseJuego.crear_ventana(print(ClaseJuego.window_x), print(ClaseJuego.window_y))), print(ClaseJuego.white), pygame.Rect(print(ClaseZonas.Zona_1[0]), print(ClaseZonas.Zona_1[1]), 10, 10))
+            pygame.draw.rect((ClaseJuego.crear_ventana(print(ClaseJuego.window_x), print(ClaseJuego.window_y))), print(ClaseJuego.white), pygame.Rect(print(ClaseZonas.zonas[0]), print(ClaseZonas.zonas[1]), 10, 10))
             
             #Mostramos el score
             ClaseJuego.show_score()
