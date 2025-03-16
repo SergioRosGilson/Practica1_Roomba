@@ -48,7 +48,8 @@ class Main:
         print(f"Tiempo estimado de limpieza: {tiempo_limpeza:.2f} segundos")
 
     if __name__ == '__main__':
-        main()
+        ClaseMain = Main()
+        ClaseMain.main()
         ClaseJuego2 = Juego()
         ClaseJuego2.iniciar_juego()
         ClaseJuego2.play_music()
